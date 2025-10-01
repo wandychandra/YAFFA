@@ -15,9 +15,9 @@ Deskripsi singkat tentang aplikasi tsb.
 # Instalasi
 [`^ kembali ke atas ^`](#)
 
-# Tutorial Instalasi & Setup Azure Virtual Machine
+## Tutorial Instalasi & Setup Azure Virtual Machine
 
-## Daftar Isi
+### Daftar Isi
 - [Prasyarat](#prasyarat)
 - [Langkah Instalasi](#langkah-instalasi)
 - [Konfigurasi Networking](#konfigurasi-networking-vm)
@@ -27,7 +27,7 @@ Deskripsi singkat tentang aplikasi tsb.
 
 ---
 
-## Prasyarat
+### Prasyarat
 
 Sebelum memulai instalasi, pastikan sudah menyiapkan:
 - Akun Azure aktif → [https://portal.azure.com](https://portal.azure.com)
@@ -37,15 +37,15 @@ Sebelum memulai instalasi, pastikan sudah menyiapkan:
 
 ---
 
-## Langkah Instalasi
+### Langkah Instalasi
 
-### 1. Login ke Azure Portal
+#### 1. Login ke Azure Portal
 
 1. Buka browser dan navigasi ke [https://portal.azure.com](https://portal.azure.com)
 2. Login menggunakan akun Microsoft Anda
 3. Tunggu hingga dashboard Azure Portal terbuka
 
-### 2. Buat Resource Group
+#### 2. Buat Resource Group
 
 1. Di Azure Portal, klik **Resource Groups** → **Create**
 2. Isi parameter berikut:
@@ -55,7 +55,7 @@ Sebelum memulai instalasi, pastikan sudah menyiapkan:
 3. Klik **Review + Create** → **Create**
 4. Tunggu hingga deployment selesai
 
-### 3. Buat Virtual Machine (VM)
+#### 3. Buat Virtual Machine (VM)
 
 1. Klik **Virtual Machines** → **Create** → **Azure Virtual Machine**
 2. Pada tab **Basics**, isi parameter:
@@ -80,7 +80,7 @@ Sebelum memulai instalasi, pastikan sudah menyiapkan:
 
 ---
 
-## Konfigurasi Networking VM
+### Konfigurasi Networking VM
 
 Pada tab **Networking**, konfigurasikan sesuai tabel berikut:
 
@@ -94,7 +94,7 @@ Pada tab **Networking**, konfigurasikan sesuai tabel berikut:
 | **Select inbound ports** | ☑️ `SSH (22)`, ☑️ `HTTP (80)`, ☑️ `HTTPS (443)` | Port untuk SSH dan web server |
 | **Delete public IP and NIC when VM is deleted** | Opsional | Biasanya tidak dicentang |
 
-### 4. Review dan Deploy VM
+#### 4. Review dan Deploy VM
 
 1. Klik **Review + Create**
 2. Periksa kembali semua konfigurasi
@@ -105,33 +105,33 @@ Pada tab **Networking**, konfigurasikan sesuai tabel berikut:
 
 ---
 
-## Menyimpan File .pem
+### Menyimpan File .pem
 
-### Lokasi Penyimpanan SSH Key
+#### Lokasi Penyimpanan SSH Key
 
 Setelah download file `.pem`, simpan di lokasi yang aman:
 
-#### Windows
+##### Windows
 ```
 C:\Users\<username>\.ssh\yaffa-key.pem
 ```
 
-#### Linux / macOS
+##### Linux / macOS
 ```
 ~/.ssh/yaffa-key.pem
 ```
 
-## Akses Terminal VM
+### Akses Terminal VM
 
-### Mendapatkan Public IP Address
+#### Mendapatkan Public IP Address
 
 1. Buka **Azure Portal** → **Virtual Machines** → **yaffa-vm**
 2. Di bagian **Overview**, copy **Public IP address**
 3. Contoh IP: `20.120.55.10`
 
-### Koneksi SSH
+#### Koneksi SSH
 
-#### Windows (PowerShell)
+##### Windows (PowerShell)
 
 ```powershell
 ssh -i C:\Users\<username>\.ssh\yaffa-key.pem azureuser@<Public-IP>
@@ -142,17 +142,17 @@ ssh -i C:\Users\<username>\.ssh\yaffa-key.pem azureuser@<Public-IP>
 ssh -i C:\Users\Fauzan\.ssh\yaffa-key.pem azureuser@20.120.55.10
 ```
 
-#### Linux / macOS / WSL
+##### Linux / macOS / WSL
 
 ```bash
 ssh -i ~/.ssh/yaffa-key.pem azureuser@<Public-IP>
 ```
 
-## Setup DuckDNS (Opsional)
+### Setup DuckDNS (Opsional)
 
 DuckDNS adalah layanan DNS dinamis gratis yang memungkinkan Anda mengakses server dengan nama domain yang mudah diingat, misalnya `yaffa.duckdns.org` alih-alih menggunakan alamat IP.
 
-### 1. Daftar di DuckDNS
+#### 1. Daftar di DuckDNS
 
 1. Buka [https://www.duckdns.org](https://www.duckdns.org)
 2. Login menggunakan salah satu opsi:
@@ -161,21 +161,21 @@ DuckDNS adalah layanan DNS dinamis gratis yang memungkinkan Anda mengakses serve
    - Twitter Account
    - Reddit Account
 
-### 2. Buat Subdomain
+#### 2. Buat Subdomain
 
 1. Setelah login, Anda akan melihat dashboard DuckDNS
 2. Di bagian **subdomains**, masukkan nama subdomain yang diinginkan
    - Contoh: `yaffadomain` (akan menjadi `yaffadomain.duckdns.org`)
 3. Klik **add domain**
 
-### 3. Update IP Address Manual
+#### 3. Update IP Address Manual
 
 Di dashboard DuckDNS:
 1. Paste **Public IP** Azure VM Anda di kolom **current ip**
 2. Klik **update ip** 
 3. Status akan berubah menjadi **OK** jika berhasil
 
-#### Test SSH dengan Domain
+##### Test SSH dengan Domain
 Sekarang Anda bisa SSH menggunakan domain:
 
 ```bash
@@ -348,7 +348,7 @@ https://yaffadomain.duckdns.org
 # Konfigurasi
 [`^ kembali ke atas ^`](#)
 
-## 🔧 Konfigurasi YAFFA
+## Konfigurasi YAFFA
 
 ### Environment Variables (.env)
 
@@ -356,14 +356,14 @@ File `.env` berisi konfigurasi utama YAFFA. Berikut adalah setting penting:
 
 | Variable | Deskripsi | Contoh Value | Wajib |
 |----------|-----------|--------------|-------|
-| `APP_URL` | URL aplikasi | `https://yaffadomain.duckdns.org` | ✅ |
-| `SANCTUM_STATEFUL_DOMAINS` | Domain untuk authentication | `yaffadomain.duckdns.org` | ✅ |
-| `SESSION_DOMAIN` | Domain untuk session cookies | `yaffadomain.duckdns.org` | ✅ |
-| `TRUSTED_PROXIES` | Proxy yang terpercaya | `*` (untuk Caddy reverse proxy) | ✅ |
-| `APP_KEY` | Encryption key | Auto-generated dengan `base64:` | ✅ |
-| `REGISTERED_USER_LIMIT` | **Batas maksimal user registrasi** | `100` (kosong = unlimited) | ❌ |
+| `APP_URL` | URL aplikasi | `https://yaffadomain.duckdns.org` | Ya |
+| `SANCTUM_STATEFUL_DOMAINS` | Domain untuk authentication | `yaffadomain.duckdns.org` | Ya |
+| `SESSION_DOMAIN` | Domain untuk session cookies | `yaffadomain.duckdns.org` | Ya |
+| `TRUSTED_PROXIES` | Proxy yang terpercaya | `*` (untuk Caddy reverse proxy) | Ya |
+| `APP_KEY` | Encryption key | Auto-generated dengan `base64:` | Ya |
+| `REGISTERED_USER_LIMIT` | Batas maksimal user registrasi | `100` (kosong = unlimited) | Tidak |
 
-### 👥 Pengaturan User Registration
+### Pengaturan User Registration
 
 **REGISTERED_USER_LIMIT** adalah setting penting untuk mengontrol jumlah user yang bisa mendaftar:
 
