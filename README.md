@@ -186,22 +186,205 @@ ssh -i C:\Users\<username>\.ssh\yaffa-key.pem azureuser@20.120.55.10
 ssh -i C:\Users\<username>\.ssh\yaffa-key.pem azureuser@yaffadomain.duckdns.org
 ```
 
+---
+
+## Install YAFFA + HTTPS di Azure VM (Ubuntu + Docker + Caddy + DuckDNS)
+
+---
+
+### 1. Update & Install Tools Dasar
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl unzip docker.io docker-compose
+```
+
+---
+
+### 2. Buat Folder Proyek
+
+```bash
+mkdir ~/yaffa && cd ~/yaffa
+```
+
+---
+
+### 3. Download File Konfigurasi
+
+```bash
+curl -o docker-compose.yml https://raw.githubusercontent.com/kantorge/yaffa/refs/heads/main/docker/docker-compose.yml
+curl -o .env https://raw.githubusercontent.com/kantorge/yaffa/refs/heads/main/.env.example
+curl -o Caddyfile https://raw.githubusercontent.com/kantorge/yaffa/refs/heads/main/docker/Caddyfile
+```
+
+---
+
+### 4. Edit File `.env`
+
+```bash
+nano .env
+```
+
+Ubah jadi pakai domain kamu (`yaffadomain.duckdns.org`):
+
+```
+APP_URL=https://yaffadomain.duckdns.org
+SANCTUM_STATEFUL_DOMAINS=yaffadomain.duckdns.org
+SESSION_DOMAIN=yaffadomain.duckdns.org
+TRUSTED_PROXIES=*
+```
+
+Simpan (`CTRL+O`, lalu `CTRL+X`).
+
+---
+
+### 5. Generate APP_KEY
+
+```bash
+grep -q '^APP_KEY=' .env && \
+  sed -i 's|^APP_KEY=.*|APP_KEY=base64:'"$(openssl rand -base64 32)"'|' .env || \
+  echo "APP_KEY=base64:$(openssl rand -base64 32)" >> .env
+```
+
+---
+
+### 6. Edit `docker-compose.yml`
+
+```bash
+nano docker-compose.yml
+```
+
+Ubah service **app** → mapping ke port 8080 (biar diproxy lewat Caddy):
+
+```yaml
+app:
+  image: kantorge/yaffa:latest
+  container_name: yaffa_app
+  ports:
+    - "8080:80"
+  env_file:
+    - .env
+  environment:
+    API_URL: "https://yaffadomain.duckdns.org"
+    RUNS_SCHEDULER: FALSE
+  volumes:
+    - yaffa_storage:/var/www/html/storage
+  depends_on:
+    db:
+      condition: service_healthy
+    redis:
+      condition: service_started
+  restart: unless-stopped
+  networks:
+    - yaffa-network
+```
+
+Tambahkan **caddy** service:
+
+```yaml
+caddy:
+  image: caddy:latest
+  container_name: yaffa_caddy
+  restart: unless-stopped
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./Caddyfile:/etc/caddy/Caddyfile
+    - caddy_data:/data
+    - caddy_config:/config
+  networks:
+    - yaffa-network
+  depends_on:
+    - app
+```
+
+---
+
+### 7. Edit `Caddyfile`
+
+```bash
+nano Caddyfile
+```
+
+Isi:
+
+```caddy
+yaffadomain.duckdns.org {
+    reverse_proxy app:80
+
+    header {
+        Content-Security-Policy "upgrade-insecure-requests"
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    }
+}
+```
+
+---
+
+#### 8. Jalankan Docker
+
+```bash
+sudo docker compose up -d
+```
+
+Cek:
+
+```bash
+sudo docker ps
+```
+
+---
+
+### 10. Akses di Browser
+
+```
+https://yaffadomain.duckdns.org
+```
+
+
 
 
 # Konfigurasi
 [`^ kembali ke atas ^`](#)
 
-Setting server tambahan yang diperlukan untuk meningkatkan fungsi dan kinerja aplikasi, misalnya:
-- batas upload file
-- batas memori
-- dll
+## 🔧 Konfigurasi YAFFA
 
-Plugin untuk fungsi tambahan
-- login dengan Google/Facebook
-- editor Markdown
-- dll
+### Environment Variables (.env)
 
+File `.env` berisi konfigurasi utama YAFFA. Berikut adalah setting penting:
 
+| Variable | Deskripsi | Contoh Value | Wajib |
+|----------|-----------|--------------|-------|
+| `APP_URL` | URL aplikasi | `https://yaffadomain.duckdns.org` | ✅ |
+| `SANCTUM_STATEFUL_DOMAINS` | Domain untuk authentication | `yaffadomain.duckdns.org` | ✅ |
+| `SESSION_DOMAIN` | Domain untuk session cookies | `yaffadomain.duckdns.org` | ✅ |
+| `TRUSTED_PROXIES` | Proxy yang terpercaya | `*` (untuk Caddy reverse proxy) | ✅ |
+| `APP_KEY` | Encryption key | Auto-generated dengan `base64:` | ✅ |
+| `REGISTERED_USER_LIMIT` | **Batas maksimal user registrasi** | `100` (kosong = unlimited) | ❌ |
+
+### 👥 Pengaturan User Registration
+
+**REGISTERED_USER_LIMIT** adalah setting penting untuk mengontrol jumlah user yang bisa mendaftar:
+
+```bash
+# Edit file .env
+nano .env
+
+# Tambahkan/ubah setting ini:
+REGISTERED_USER_LIMIT=50    # Maksimal 50 user
+REGISTERED_USER_LIMIT=      # Unlimited (hapus nilai)
+REGISTERED_USER_LIMIT=1000  # Maksimal 1000 user
+```
+
+### Menerapkan Perubahan Konfigurasi
+
+Setelah mengubah `.env`, restart container:
+
+```bash
+sudo docker compose down
+sudo docker compose up -d
+```
 
 # Maintenance
 [`^ kembali ke atas ^`](#)
@@ -242,4 +425,4 @@ Skrip shell untuk otomatisasi instalasi, konfigurasi, dan maintenance.
 # Referensi
 [`^ kembali ke atas ^`](#)
 
-Cantumkan tiap sumber informasi yang anda pakai.
+https://yaffa.cc/documentation/
