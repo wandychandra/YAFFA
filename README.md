@@ -91,7 +91,7 @@ Pada tab **Networking**, konfigurasikan sesuai tabel berikut:
 | **Public IP** | `Create new` → `yaffa-ip` | IP publik untuk akses eksternal |
 | **NIC network security group** | `Basic` | Kontrol firewall dasar |
 | **Public inbound ports** | `Allow selected ports` | Hanya buka port tertentu |
-| **Select inbound ports** | ☑️ `SSH (22)`, ☑️ `HTTP (80)`, ☑️ `HTTPS (443)` | Port untuk SSH dan web server |
+| **Select inbound ports** | `SSH (22)`, `HTTP (80)`, `HTTPS (443)` | Port untuk SSH dan web server |
 | **Delete public IP and NIC when VM is deleted** | Opsional | Biasanya tidak dicentang |
 
 #### 4. Review dan Deploy VM
@@ -150,7 +150,7 @@ ssh -i ~/.ssh/yaffa-key.pem azureuser@<Public-IP>
 
 ### Setup DuckDNS (Opsional)
 
-DuckDNS adalah layanan DNS dinamis gratis yang memungkinkan Anda mengakses server dengan nama domain yang mudah diingat, misalnya `yaffa.duckdns.org` alih-alih menggunakan alamat IP.
+DuckDNS adalah layanan DNS dinamis gratis yang memungkinkan Anda mengakses server dengan nama domain yang mudah diingat, misalnya `yaffadomain.duckdns.org` alih-alih menggunakan alamat IP.
 
 #### 1. Daftar di DuckDNS
 
