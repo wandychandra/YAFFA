@@ -65,7 +65,7 @@ Sebelum memulai instalasi, pastikan sudah menyiapkan:
 | **Subscription** | Pilih subscription aktif | - |
 | **Resource group** | `yaffa-rg` | Yang sudah dibuat sebelumnya |
 | **Virtual machine name** | `yaffa-vm` | Nama VM Anda |
-| **Region** | `Southeast Asia` | Sesuai dengan resource group |
+| **Region** | `Indonesia Central` | Sesuai dengan resource group |
 | **Availability options** | `No infrastructure redundancy required` | Untuk testing/development |
 | **Security type** | `Standard` | Default option |
 | **Image** | `Ubuntu Server 22.04 LTS - x64 Gen2` | OS Linux yang stabil |
