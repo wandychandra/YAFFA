@@ -15,7 +15,14 @@
 
 </div>
 
-
+# Anggota Kelompok
+| NIM           | Nama                        |
+|---------------|-----------------------------|
+| G6401231018   | Deshi Ardiani               |
+| G6401231062   | Dinaranaya Putri Hutauruk   |
+| G6401231040   | Fauzan Arif Tricahya        |
+| G6401231054   | Wandy Chandra Wijaya        |
+| G6401231104   | Muhammad Abdullah           |
 
 # Sekilas Tentang
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
