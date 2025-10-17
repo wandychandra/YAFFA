@@ -438,11 +438,61 @@ Tambah transaksi baru, pilih jenis transaksi (**Withdraw**, **Deposit**, atau **
 # Pembahasan
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
-- Pendapat anda tentang aplikasi web ini
-  - kelebihan
-  - kekurangan
-- Bandingkan dengan aplikasi web lain yang sejenis
+## Kelebihan
+- **Antarmuka Web Modern**  
+  YAFFA memiliki tampilan yang sederhana, bersih, dan mudah digunakan. Karena berbasis web, pengguna dapat mengaksesnya dari berbagai perangkat melalui browser tanpa perlu instalasi tambahan.
+  
+- **Multi-Currency Support**  
+  Mendukung berbagai mata uang dengan konversi otomatis berdasarkan kurs terkini. Fitur ini sangat berguna bagi pengguna yang memiliki rekening dalam mata uang berbeda (USD, IDR, EUR, dll).
 
+- **Manajemen Akun yang Fleksibel**  
+  Pengguna dapat menambahkan berbagai jenis akun seperti bank, e-wallet, kas, maupun akun investasi. Setiap akun bisa diberi saldo awal dan dikelompokkan sesuai kebutuhan.
+
+- **Pelacakan Investasi dan Aset**  
+  Tidak hanya untuk pengeluaran harian, YAFFA juga mampu melacak investasi seperti saham, obligasi, atau emas, memberikan gambaran lengkap tentang kekayaan bersih.
+
+- **Scheduled Transactions**  
+  Mendukung pencatatan transaksi rutin seperti gaji atau cicilan, sehingga tidak perlu melakukan input manual secara berulang.
+
+- **Open Source & Self-Hosted**  
+  YAFFA bersifat open source dan bisa diinstal di server pribadi, memberikan kontrol penuh terhadap data dan meningkatkan keamanan serta privasi.
+
+---
+
+## Kekurangan
+- **Komunitas & Dokumentasi Terbatas**  
+  Karena masih relatif baru dibanding aplikasi lain seperti Firefly III, panduan dan komunitas pengguna YAFFA belum terlalu besar.
+
+- **Integrasi Eksternal Minim**  
+  Belum tersedia koneksi langsung dengan API bank atau aplikasi keuangan lain, sehingga transaksi harus diimpor atau dicatat secara manual.
+
+- **Laporan Visual Sederhana**  
+  Grafik dan analisis keuangan masih tergolong dasar, belum sekomprehensif aplikasi lain yang berfokus pada budgeting dan analitik visual.
+
+- **Kurang Cocok untuk Bisnis/UKM**  
+  YAFFA lebih ditujukan untuk personal finance dan tidak mendukung sistem akuntansi double-entry seperti GnuCash.
+
+- **Membutuhkan Setup Server**  
+  Karena bersifat self-hosted, pengguna perlu memahami dasar-dasar hosting atau Docker untuk menginstalnya.
+
+---
+## Perbandingan dengan Aplikasi Sejenis
+
+| Aspek | **YAFFA** | **Firefly III** | **MMEX (Money Manager Ex)** | **GnuCash** |
+|:--|:--|:--|:--|:--|
+| **Platform** | Web (self-hosted) | Web (self-hosted) | Desktop | Desktop |
+| **Kemudahan Instalasi** | Mudah & ringan | Kompleks untuk pemula | Mudah | Cukup kompleks |
+| **Antarmuka (UI/UX)** | Modern & responsif | Menengah, banyak fitur | Klasik | Kurang ramah pengguna |
+| **Akses Offline** | Tidak bisa penuh | Tidak | Ya | Ya |
+| **Multi-Currency** | Ya | Ya | Terbatas | Ya |
+| **Investasi & Aset** | Ada | Ada | Terbatas | Ada |
+| **Integrasi API Bank** | Tidak | Ya (melalui plugin) | Tidak | Tidak |
+| **Automasi Transaksi** | Ada | Ada | Terbatas | Terbatas |
+| **Laporan Visual** | Sederhana | Lengkap & interaktif | Dasar | Lengkap tapi kaku |
+| **Fokus Utama** | Keuangan pribadi | Keuangan pribadi & semi bisnis | Personal finance offline | Bisnis kecil (double-entry) |
+| **Komunitas & Dukungan** | Kecil | Besar, aktif | Besar | Sangat besar |
+| **Kebutuhan Server** | Ringan | Lebih berat | Tidak perlu | Tidak perlu |
+| **Lisensi** | Open Source | Open Source | Open Source | Open Source |
 
 
 # Referensi
