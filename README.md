@@ -520,7 +520,7 @@ OPENAI_API_KEY=yourapikey
 </p>
 YAFFA membantu pengguna mengelola keuangan harian sekaligus pertumbuhan jangka panjang. Fitur-fiturnya terbagi menjadi dua fokus utama:
 
-### A. Pengelolaan tabungan dan pengeluaran harian
+### A. Pengelolaan Tabungan dan Pengeluaran Harian
 
 1. Currencies (Mata Uang)
 Tambahkan dan kelola mata uang yang digunakan untuk transaksi. Tentukan **base currency** agar semua saldo dan laporan ditampilkan dengan nilai yang konsisten.
@@ -548,7 +548,7 @@ Tambah transaksi baru, pilih jenis transaksi (**Withdraw**, **Deposit**, atau **
   <img src="./assets/new transaction.png" width="75%" alt="New Transaction">
 </p>
 
-### B. Pemantauan investasi dan kekayaan.
+### B. Pemantauan Investasi dan Kekayaan
 
 1. Investment Groups dan Investments
 Kelompokkan jenis investasi (misalnya Saham, Reksa Dana, Emas).
