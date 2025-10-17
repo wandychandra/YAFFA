@@ -508,22 +508,29 @@ OPENAI_API_KEY=yourapikey
 # Cara Pemakaian
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
-[gambar YAFFA_information architecture]
+![Alt text](./assets/YAFFA_information architecture.png)
 YAFFA membantu pengguna mengelola keuangan harian sekaligus pertumbuhan jangka panjang. Fitur-fiturnya terbagi menjadi dua fokus utama:
 ### A. Pengelolaan tabungan dan pengeluaran harian
 
 1. Currencies (Mata Uang)
 Tambahkan dan kelola mata uang yang digunakan untuk transaksi. Tentukan **base currency** agar semua saldo dan laporan ditampilkan dengan nilai yang konsisten.
-[gambar currencies]
+![Alt text](./assets/Currencies.png)
 
 2. Account Groups dan Account
 Buat **Account Groups** untuk mengelompokkan akun seperti rekening Bank, dompet, atau investasi. Lalu tambahkan akun yang digunakan.
-[gambar Account Groups dan Account, atau kalo bisa gambarnya yang 1 1 tapi jadi sebaris gak sekolom]
+<p align="center">
+  <img src="./assets/Account groups.png" width="45%" style="margin-right: 2%;" alt="Account Groups">
+  <img src="./assets/Account.png" width="45%" alt="Account">
+</p>
 
 3. Payees & Categories
 Gunakan **Categories** untuk mengelompokkan pengeluaran dan pemasukan (misal: Makanan, Transportasi).  
 Tambah **Payees** untuk mencatat pihak transaksi seperti toko atau aplikasi.
 [gambar categories dan payees]
+<p align="center">
+  <img src="./assets/Categories.png" width="45%" style="margin-right: 2%;" alt="Account Groups">
+  <img src="./assets/Payees.png" width="45%" alt="Account">
+</p>
 
 4. New Transaction
 Tambah transaksi baru, pilih jenis transaksi (**Withdraw**, **Deposit**, atau **Transfer**), menentukan akun dan payee, lalu menambahkan rincian item transaksi. 
@@ -533,7 +540,10 @@ Tambah transaksi baru, pilih jenis transaksi (**Withdraw**, **Deposit**, atau **
 
 1. Investment Groups dan Investments
 Kelompokkan jenis investasi (misalnya Saham, Reksa Dana, Emas).
-[gambar Investment Groups dan Investments]
+<p align="center">
+  <img src="./assets/Investment groups.png" width="45%" style="margin-right: 2%;" alt="Account Groups">
+  <img src="./assets/Investments.png" width="45%" alt="Account">
+</p>
 
 2. New Investment dan Investment Details
 Menambahkan instrumen investasi yang kredibel untuk memantau nilainya otomatis.
@@ -541,8 +551,7 @@ Menambahkan instrumen investasi yang kredibel untuk memantau nilainya otomatis.
 
 3. Dashboard
 Dashboard menampilkan ringkasan keuangan keseluruhan dari seluruh akun dan aktivitas keuangan.
-[gamabr dashboard]
-
+![Alt text](./assets/Dashboard 2.png)
 
 
 # Pembahasan
