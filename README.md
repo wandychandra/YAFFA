@@ -529,9 +529,7 @@ Buat **Account Groups** untuk mengelompokkan akun seperti rekening Bank, dompet,
 </p>
 
 3. Payees & Categories
-Gunakan **Categories** untuk mengelompokkan pengeluaran dan pemasukan (misal: Makanan, Transportasi).  
-Tambah **Payees** untuk mencatat pihak transaksi seperti toko atau aplikasi.
-[gambar categories dan payees]
+Gunakan **Categories** untuk mengelompokkan pengeluaran dan pemasukan (misal: Makanan, Transportasi). Tambah **Payees** untuk mencatat pihak transaksi seperti toko atau aplikasi.
 <p align="center">
   <img src="./assets/Categories.png" width="48%" style="margin-right: 2%;" alt="Categories">
   <img src="./assets/Payees.png" width="48%" alt="Payees">
