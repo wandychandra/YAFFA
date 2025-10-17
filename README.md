@@ -413,11 +413,20 @@ Skrip shell untuk otomatisasi instalasi, konfigurasi, dan maintenance.
 # Cara Pemakaian
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
-- Tampilan aplikasi web
-- Fungsi-fungsi utama
-- Isi dengan data real/dummy (jangan kosongan) dan sertakan beberapa screenshot
+[gambar YAFFA_information architecture]
+YAFFA membantu pengguna mengelola keuangan harian sekaligus pertumbuhan jangka panjang. Fitur-fiturnya terbagi menjadi dua fokus utama: pengelolaan tabungan dan pengeluaran harian, serta pemantauan investasi dan kekayaan.
 
+---
 
+### 1. Currencies - Atur Mata Uang
+Tambahkan dan kelola mata uang yang digunakan untuk transaksi. Tentukan **base currency** agar semua saldo dan laporan ditampilkan dengan nilai yang konsisten.
+[gambar currencies]
+
+---
+
+### 2. Account Groups dan Account
+Buat **Account Groups** untuk mengelompokkan akun seperti rekening Bank, dompet, atau investasi. Lalu tambahkan akun yang digunakan.
+[gambar Account Groups dan Account, atau kalo bisa gambarnya yang 1 1 tapi jadi sebaris gak sekolom]
 
 # Pembahasan
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
