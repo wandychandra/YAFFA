@@ -391,85 +391,120 @@ sudo docker compose down
 sudo docker compose up -d
 ```
 
-# Konfigurasi Lanjutan 
+# Konfigurasi Lanjutan
 
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
+## 1. **Alpha Vantage (API Harga Investasi)**
 
-## 1\. Alpha Vantage (API Harga Investasi)
+* **Status:** *Sudah Diterapkan*
+* **Jenis Layanan:** Gratis (dengan batasan pemakaian harian)
 
-  - **Status**: **Sudah Diterapkan** 
-  - **Layanan**: Umumnya gratis dengan batasan.
+### Fungsi
 
-**Fungsi:**
-Fitur ini memungkinkan YAFFA untuk secara otomatis mengambil data harga historis dan real-time untuk aset investasi umum seperti saham, forex, dan mata uang kripto, sehingga tidak perlu lagi memasukkan harga secara manual.
+YAFFA menggunakan **Alpha Vantage API** untuk mengambil data harga **historis** dan **real-time** dari berbagai aset seperti **saham**, **forex**, dan **mata uang kripto**.
+Dengan fitur ini, pengguna tidak perlu lagi memperbarui harga investasi secara manual.
 
-**Lokasi Konfigurasi:**
+### Konfigurasi
 
-  - Kunci API tersimpan di dalam file `.env` di server pada variabel `ALPHA_VANTAGE_KEY`.
+Tambahkan kunci API ke file `.env`:
 
------
+```env
+ALPHA_VANTAGE_KEY=your_api_key_here
+```
 
-## 2\. Web Scraping & Penjadwalan Otomatis (Cron Job)
+---
 
-  - **Status**: **Sudah Diterapkan** 
-  - **Layanan**: Fitur bawaan & Konfigurasi Server.
+## 2. **Web Scraping & Penjadwalan Otomatis (Cron Job)**
 
-**Fungsi:**
-Sebagai alternatif dari Alpha Vantage, fitur ini digunakan untuk mengambil data harga dari situs web manapun. Ini sangat berguna untuk aset yang tidak terdaftar di API, seperti reksa dana lokal.
+* **Status:** *Sudah Diterapkan*
+* **Jenis Layanan:** Fitur bawaan (konfigurasi sistem)
 
-Agar proses ini berjalan **secara otomatis** setiap hari tanpa intervensi manual, sebuah **Cron Job** (penjadwal tugas) telah diatur di tingkat server. Cron job ini berfungsi sebagai "alarm" yang memanggil YAFFA setiap menit untuk memeriksa apakah ada jadwal scraping yang perlu dijalankan.
+### Fungsi
 
-**Implementasi & Penggunaan:**
+Fitur ini memungkinkan YAFFA mengambil harga investasi langsung dari **halaman web sumber**, misalnya situs reksa dana lokal yang tidak terdaftar di API publik.
+Agar proses ini berjalan otomatis setiap hari, digunakan **Cron Job** yang memanggil perintah Laravel scheduler (`artisan schedule:run`) di latar belakang.
 
-**A. Konfigurasi di Dalam Aplikasi YAFFA:**
-Bagian ini diatur oleh pengguna untuk setiap aset yang memerlukannya.
+### Konfigurasi Cron Job
 
-1.  Saat menambah atau mengedit aset investasi, pilih metode pengambilan harga **"Web scraping"**.
-2.  **URL**: Masukkan alamat halaman web yang menampilkan harga.
-3.  **CSS Selector**: Masukkan "koordinat" HTML dari harga tersebut, yang didapatkan dengan fitur "Inspect Element" di browser.
+1. Buka terminal dan masuk ke server via SSH.
+2. Jalankan perintah berikut untuk mengedit `crontab`:
 
-**B. Konfigurasi Otomatisasi di Server:**
-Bagian ini telah selesai dikonfigurasi di server untuk memastikan penjadwal YAFFA selalu aktif.
+   ```bash
+   crontab -e
+   ```
+3. Tambahkan baris berikut:
 
-  - Untuk memverifikasi, jalankan perintah `crontab -l` di terminal SSH. Baris berikut akan muncul:
-    ```crontab
-    * * * * * cd /home/azureuser/yaffa && /usr/bin/php artisan schedule:run >> /dev/null 2>&1
-    ```
-  - **Peringatan**: Perlu diingat bahwa proses scraping sangat rapuh. Jika situs web sumber mengubah desainnya, proses scraping bisa gagal dan CSS Selector perlu dikonfigurasi ulang.
+   ```crontab
+   * * * * * cd /home/azureuser/yaffa && /usr/bin/php artisan schedule:run >> /dev/null 2>&1
+   ```
+4. Simpan dan keluar (`Ctrl + O`, `Enter`, `Ctrl + X`).
+5. Periksa konfigurasi aktif:
 
------
+   ```bash
+   crontab -l
+   ```
 
-## 3\. Konfigurasi Pengiriman Email (SMTP)
+### Catatan
 
-  - **Status**: Belum Diterapkan 
-  - **Layanan**: Mayoritas berbayar (model *freemium*).
+* Cron job berjalan **setiap menit** untuk memeriksa jadwal scraping.
+* Jika struktur situs berubah, **CSS Selector** sumber harga perlu diperbarui agar data tetap valid.
 
-**Fungsi:**
-Mengaktifkan kemampuan YAFFA untuk mengirim email, yang penting untuk verifikasi pendaftaran pengguna baru dan fitur reset password.
+---
 
-**Alasan Belum Diterapkan:**
-Memerlukan langganan layanan SMTP pihak ketiga (seperti SendGrid, Mailgun). Meskipun ada paket gratis, biasanya terdapat batasan ketat pada jumlah email yang bisa dikirim.
+## 3. **Konfigurasi Pengiriman Email (SMTP)**
 
-**Langkah Implementasi di Masa Depan:**
-Memerlukan pendaftaran di penyedia SMTP dan mengisi kredensial (`MAIL_HOST`, `MAIL_PORT`, dll) di dalam file `.env`.
+* **Status:** *Belum Diterapkan*
+* **Jenis Layanan:** *Freemium* (mayoritas berbayar)
 
------
+### Fungsi
 
-## 4\. Pemrosesan Struk Otomatis (OpenAI)
+Menambahkan kemampuan YAFFA untuk **mengirim email otomatis**, misalnya untuk:
 
-  - **Status**: Belum Diterapkan 
-  - **Layanan**: Berbayar dan kompleks untuk diatur.
+* Verifikasi pendaftaran pengguna
+* Reset kata sandi
 
-**Fungsi:**
-Pengguna bisa meneruskan (forward) email berisi struk ke alamat email khusus. YAFFA kemudian menggunakan AI (OpenAI) untuk membaca struk tersebut dan secara otomatis membuat draf transaksi.
+### Alasan Belum Diterapkan
 
-**Alasan Belum Diterapkan:**
-Ini adalah fitur yang paling kompleks dan mahal untuk diimplementasikan, karena memerlukan **API OpenAI berbayar** dan **domain pribadi** untuk menerima email (tidak bisa menggunakan DuckDNS).
+Diperlukan layanan SMTP pihak ketiga seperti **SendGrid**, **Mailgun**, atau **Postmark**, yang umumnya memiliki batasan kuota untuk paket gratis.
 
-**Langkah Implementasi di Masa Depan:**
-Memerlukan pembelian domain pribadi, pengaturan MX Record, dan konfigurasi kredensial SendGrid serta OpenAI di dalam file `.env`.
+### Konfigurasi (Rencana)
 
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.example.com
+MAIL_PORT=587
+MAIL_USERNAME=your_username
+MAIL_PASSWORD=your_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=no-reply@yourdomain.com
+MAIL_FROM_NAME="YAFFA System"
+```
+
+---
+
+## 4. **Pemrosesan Struk Otomatis (OpenAI)**
+
+* **Status:** *Belum Diterapkan*
+* **Jenis Layanan:** Berbayar dan kompleks untuk diatur
+
+### Fungsi
+
+Fitur ini dirancang agar YAFFA dapat memproses **struk pembelian otomatis** yang dikirim melalui email.
+Sistem menggunakan **OpenAI API** untuk membaca isi struk dan menghasilkan **draf transaksi otomatis**.
+
+### Alasan Belum Diterapkan
+
+* Membutuhkan **domain pribadi** dengan pengaturan **MX Record** (tidak dapat menggunakan DuckDNS)
+* Memerlukan **API OpenAI berbayar**
+* Bergantung pada layanan email masuk (seperti SendGrid)
+
+### Konfigurasi (Rencana)
+
+```env
+OPENAI_API_KEY=your_api_key_here
+SENDGRID_API_KEY=your_sendgrid_key
+```
 
 # Cara Pemakaian
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
