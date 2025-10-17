@@ -563,6 +563,18 @@ Dashboard menampilkan ringkasan keuangan keseluruhan dari seluruh akun dan aktiv
   <img src="./assets/Dashboard.png" width="75%" alt="Dashboard">
 </p>
 
+4. Find Transactions
+Cari dan analisis transaksi berdasarkan tanggal, kategori, akun, atau penerima. Menyediakan ringkasan transaksi, daftar detail, serta grafik dan diagram untuk memantau pengeluaran.
+<p align="center">
+  <img src="./assets/Find Transactions 1.png" width="48%" style="margin-right: 2%;" alt="Find Transactions 1">
+  <img src="./assets/Find Transactions 2.png" width="48%" alt="Find Transactions 2">
+</p>
+<p align="center">
+  <img src="./assets/Find Transactions 3.png" width="48%" style="margin-right: 2%;" alt="Find Transactions 1">
+  <img src="./assets/Find Transactions 4.png" width="48%" alt="Find Transactions 4">
+</p>
+
+
 
 # Pembahasan
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
