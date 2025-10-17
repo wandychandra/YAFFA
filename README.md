@@ -414,24 +414,39 @@ Skrip shell untuk otomatisasi instalasi, konfigurasi, dan maintenance.
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
 [gambar YAFFA_information architecture]
-YAFFA membantu pengguna mengelola keuangan harian sekaligus pertumbuhan jangka panjang. Fitur-fiturnya terbagi menjadi dua fokus utama: pengelolaan tabungan dan pengeluaran harian, serta pemantauan investasi dan kekayaan.
+YAFFA membantu pengguna mengelola keuangan harian sekaligus pertumbuhan jangka panjang. Fitur-fiturnya terbagi menjadi dua fokus utama:
+### A. Pengelolaan tabungan dan pengeluaran harian
 
-### 1. Currencies (Mata Uang)
+1. Currencies (Mata Uang)
 Tambahkan dan kelola mata uang yang digunakan untuk transaksi. Tentukan **base currency** agar semua saldo dan laporan ditampilkan dengan nilai yang konsisten.
 [gambar currencies]
 
-### 2. Account Groups dan Account
+2. Account Groups dan Account
 Buat **Account Groups** untuk mengelompokkan akun seperti rekening Bank, dompet, atau investasi. Lalu tambahkan akun yang digunakan.
 [gambar Account Groups dan Account, atau kalo bisa gambarnya yang 1 1 tapi jadi sebaris gak sekolom]
 
-### 3. Payees & Categories
+3. Payees & Categories
 Gunakan **Categories** untuk mengelompokkan pengeluaran dan pemasukan (misal: Makanan, Transportasi).  
 Tambah **Payees** untuk mencatat pihak transaksi seperti toko atau aplikasi.
 [gambar categories dan payees]
 
-### 4. New Transaction
+4. New Transaction
 Tambah transaksi baru, pilih jenis transaksi (**Withdraw**, **Deposit**, atau **Transfer**), menentukan akun dan payee, lalu menambahkan rincian item transaksi. 
 [gambar new transaction]
+
+### B. Pemantauan investasi dan kekayaan.
+
+1. Investment Groups dan Investments
+Kelompokkan jenis investasi (misalnya Saham, Reksa Dana, Emas).
+[gambar Investment Groups dan Investments]
+
+2. New Investment dan Investment Details
+Menambahkan instrumen investasi yang kredibel untuk memantau nilainya otomatis.
+[gambar New Investment dan Investment Details]
+
+3. Dashboard
+Dashboard menampilkan ringkasan keuangan keseluruhan dari seluruh akun dan aktivitas keuangan.
+[gamabr dashboard]
 
 
 
