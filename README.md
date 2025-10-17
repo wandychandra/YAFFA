@@ -1,4 +1,5 @@
 # Project Hosting KDJK YAFFA [Kelompok 5/Paralel 1]
+<a id="top"></a>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f3b129fb-c24b-4c29-ba28-b6c0a04ba1dc" 
        width="200" height="200" alt="YAFFA Logo">
@@ -18,7 +19,7 @@
 
 
 # Sekilas Tentang
-[`^ kembali ke atas ^`](#)
+[`^ kembali ke atas ^`](#top)
 <div align="justify">
 <p>
 YAFFA adalah aplikasi web manajemen keuangan pribadi yang bersifat open-source (kode sumber terbuka) dan dapat diinstal secara mandiri (self-hosted). Aplikasi ini dirancang untuk memberikan kendali penuh kepada pengguna dalam mengelola seluruh aspek keuangan mereka, mulai dari pelacakan pengeluaran harian, penetapan anggaran bulanan, hingga pemantauan kinerja investasi. YAFFA sangat berfokus pada dukungan perencanaan keuangan jangka panjang, memungkinkan pengguna untuk melakukan peramalan dan analisis berdasarkan data historis mereka.
@@ -31,7 +32,7 @@ Keistimewaan YAFFA terletak pada model self-hosted dan statusnya yang gratis (di
 
 
 # Instalasi
-[`^ kembali ke atas ^`](#)
+[`^ kembali ke atas ^`](#top)
 
 ## Tutorial Instalasi & Setup Azure Virtual Machine
 ### Prasyarat
@@ -394,7 +395,7 @@ sudo docker compose up -d
 ```
 
 # Maintenance
-[`^ kembali ke atas ^`](#)
+[`^ kembali ke atas ^`](#top)
 
 Setting tambahan untuk maintenance secara periodik, misalnya:
 - buat backup database tiap pekan
@@ -404,14 +405,14 @@ Setting tambahan untuk maintenance secara periodik, misalnya:
 
 
 # Otomatisasi
-[`^ kembali ke atas ^`](#)
+[`^ kembali ke atas ^`](#top)
 
 Skrip shell untuk otomatisasi instalasi, konfigurasi, dan maintenance.
 
 
 
 # Cara Pemakaian
-[`^ kembali ke atas ^`](#)
+[`^ kembali ke atas ^`](#top)
 
 - Tampilan aplikasi web
 - Fungsi-fungsi utama
@@ -420,7 +421,7 @@ Skrip shell untuk otomatisasi instalasi, konfigurasi, dan maintenance.
 
 
 # Pembahasan
-[`^ kembali ke atas ^`](#)
+[`^ kembali ke atas ^`](#top)
 
 - Pendapat anda tentang aplikasi web ini
   - kelebihan
@@ -430,6 +431,6 @@ Skrip shell untuk otomatisasi instalasi, konfigurasi, dan maintenance.
 
 
 # Referensi
-[`^ kembali ke atas ^`](#)
+[`^ kembali ke atas ^`](#top)
 
 https://yaffa.cc/documentation/
