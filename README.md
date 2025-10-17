@@ -1,32 +1,39 @@
-# YAFFA
+# Project Hosting KDJK YAFFA [Kelompok 5/Paralel 1]
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f3b129fb-c24b-4c29-ba28-b6c0a04ba1dc" 
+       width="200" height="200" alt="YAFFA Logo">
+</p>
+
+<h2 align="center">YAFFA - Your Personal Finance App</h2>
+
+<p align="center"><em>A Free Personal Finance & Budgeting Tool for Everyone.</em></p>
+
+<div align="center">
 
 [Sekilas Tentang](#sekilas-tentang) | [Instalasi](#instalasi) | [Konfigurasi](#konfigurasi) | [Otomatisasi](#otomatisasi) | [Cara Pemakaian](#cara-pemakaian) | [Pembahasan](#pembahasan) | [Referensi](#referensi)
 :---:|:---:|:---:|:---:|:---:|:---:|:---:
+
+</div>
 
 
 
 # Sekilas Tentang
 [`^ kembali ke atas ^`](#)
+<div align="justify">
+<p>
+YAFFA adalah aplikasi web manajemen keuangan pribadi yang bersifat open-source (kode sumber terbuka) dan dapat diinstal secara mandiri (self-hosted). Aplikasi ini dirancang untuk memberikan kendali penuh kepada pengguna dalam mengelola seluruh aspek keuangan mereka, mulai dari pelacakan pengeluaran harian, penetapan anggaran bulanan, hingga pemantauan kinerja investasi. YAFFA sangat berfokus pada dukungan perencanaan keuangan jangka panjang, memungkinkan pengguna untuk melakukan peramalan dan analisis berdasarkan data historis mereka.
+</p>
 
-Deskripsi singkat tentang aplikasi tsb.
-
+<p>
+Keistimewaan YAFFA terletak pada model self-hosted dan statusnya yang gratis (di bawah lisensi MIT). Ini berarti pengguna menjalankan aplikasi di server pribadi mereka sendiri. Keuntungan utamanya adalah privasi data maksimal, karena informasi keuangan yang sensitif tidak disimpan di layanan cloud pihak ketiga, melainkan tetap berada di bawah kendali pengguna sepenuhnya. YAFFA hadir sebagai alternatif kuat bagi mereka yang mencari alat budgeting canggih tanpa mengorbankan keamanan data atau harus membayar biaya berlangganan.
+</p>
+</div>
 
 
 # Instalasi
 [`^ kembali ke atas ^`](#)
 
 ## Tutorial Instalasi & Setup Azure Virtual Machine
-
-### Daftar Isi
-- [Prasyarat](#prasyarat)
-- [Langkah Instalasi](#langkah-instalasi)
-- [Konfigurasi Networking](#konfigurasi-networking-vm)
-- [Menyimpan SSH Key](#menyimpan-file-pem)
-- [Akses Terminal VM](#akses-terminal-vm)
-- [Setup DuckDNS (Opsional)](#setup-duckdns-opsional)
-
----
-
 ### Prasyarat
 
 Sebelum memulai instalasi, pastikan sudah menyiapkan:
