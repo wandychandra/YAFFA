@@ -10,8 +10,8 @@
 
 <div align="center">
 
-[Sekilas Tentang](#sekilas-tentang) | [Instalasi](#instalasi) | [Konfigurasi](#konfigurasi) | [Konfigurasi Lanjutan](#konfigurasi-lanjutan) | [Pembahasan](#pembahasan) | [Referensi](#referensi)
-:---:|:---:|:---:|:---:|:---:|:---:
+[Sekilas Tentang](#sekilas-tentang) | [Instalasi](#instalasi) | [Konfigurasi](#konfigurasi) | [Konfigurasi Lanjutan](#konfigurasi-lanjutan) |  [Cara Pemakaian](#cara-pemakaian) | [Pembahasan](#pembahasan) | [Referensi](#referensi)
+:---:|:---:|:---:|:---:|:---:|:---:|:---:
 
 </div>
 
@@ -508,7 +508,9 @@ OPENAI_API_KEY=yourapikey
 # Cara Pemakaian
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
-![Alt text](./assets/YAFFA_information architecture.png)
+<p align="center">
+  <img src="./assets/YAFFA_information architecture.png" width="90%" alt="Architecture">
+</p>
 YAFFA membantu pengguna mengelola keuangan harian sekaligus pertumbuhan jangka panjang. Fitur-fiturnya terbagi menjadi dua fokus utama:
 ### A. Pengelolaan tabungan dan pengeluaran harian
 
@@ -537,7 +539,7 @@ Tambah **Payees** untuk mencatat pihak transaksi seperti toko atau aplikasi.
 4. New Transaction
 Tambah transaksi baru, pilih jenis transaksi (**Withdraw**, **Deposit**, atau **Transfer**), menentukan akun dan payee, lalu menambahkan rincian item transaksi. 
 <p align="center">
-  <img src="./assets/new transaction.png" width="70%" alt="New Transaction">
+  <img src="./assets/new transaction.png" width="75%" alt="New Transaction">
 </p>
 
 ### B. Pemantauan investasi dan kekayaan.
@@ -552,14 +554,14 @@ Kelompokkan jenis investasi (misalnya Saham, Reksa Dana, Emas).
 2. New Investment dan Investment Details
 Menambahkan instrumen investasi yang kredibel untuk memantau nilainya otomatis.
 <p align="center">
-  <img src="./assets/New investments.png" width="48%" style="margin-right: 2%;" alt="New Investment">
-  <img src="./assets/Investments detail.png" width="48%" alt="Investment Detail">
+  <img src="./assets/New investment.png" width="48%" style="margin-right: 2%;" alt="New Investment">
+  <img src="./assets/Investment detail.png" width="48%" alt="Investment Detail">
 </p>
 
 3. Dashboard
 Dashboard menampilkan ringkasan keuangan keseluruhan dari seluruh akun dan aktivitas keuangan.
 <p align="center">
-  <img src="./assets/Dashboard.png" width="70%" alt="Dashboard">
+  <img src="./assets/Dashboard.png" width="75%" alt="Dashboard">
 </p>
 
 
