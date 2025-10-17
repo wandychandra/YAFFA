@@ -10,7 +10,7 @@
 
 <div align="center">
 
-[Sekilas Tentang](#sekilas-tentang) | [Instalasi](#instalasi) | [Konfigurasi](#konfigurasi) | [Konfigurasi Lanjutan](#konfigurasi-lanjutan) |  [Cara Pemakaian](#cara-pemakaian) | [Pembahasan](#pembahasan) | [Referensi](#referensi)
+[Tentang](#sekilas-tentang) | [Instalasi](#instalasi) | [Konfigurasi](#konfigurasi) | [Konfigurasi Lanjutan](#konfigurasi-lanjutan) |  [Pemakaian](#cara-pemakaian) | [Pembahasan](#pembahasan) | [Referensi](#referensi)
 :---:|:---:|:---:|:---:|:---:|:---:|:---:
 
 </div>
