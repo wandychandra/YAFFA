@@ -10,8 +10,8 @@
 
 <div align="center">
 
-[Sekilas Tentang](#sekilas-tentang) | [Instalasi](#instalasi) | [Konfigurasi](#konfigurasi) | [Otomatisasi](#otomatisasi) | [Cara Pemakaian](#cara-pemakaian) | [Pembahasan](#pembahasan) | [Referensi](#referensi)
-:---:|:---:|:---:|:---:|:---:|:---:|:---:
+[Sekilas Tentang](#sekilas-tentang) | [Instalasi](#instalasi) | [Konfigurasi](#konfigurasi) | [Konfigurasi Lanjutan](#konfigurasi-lanjutan) | [Pembahasan](#pembahasan) | [Referensi](#referensi)
+:---:|:---:|:---:|:---:|:---:|:---:
 
 </div>
 
@@ -350,8 +350,6 @@ https://yaffadomain.duckdns.org
 ```
 
 
-
-
 # Konfigurasi
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
@@ -393,21 +391,84 @@ sudo docker compose down
 sudo docker compose up -d
 ```
 
-# Maintenance
+# Konfigurasi Lanjutan 
+
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
 
-Setting tambahan untuk maintenance secara periodik, misalnya:
-- buat backup database tiap pekan
-- hapus direktori sampah tiap hari
-- dll
 
+## 1\. Alpha Vantage (API Harga Investasi)
 
+  - **Status**: **Sudah Diterapkan** 
+  - **Layanan**: Umumnya gratis dengan batasan.
 
-# Otomatisasi
-[`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
+**Fungsi:**
+Fitur ini memungkinkan YAFFA untuk secara otomatis mengambil data harga historis dan real-time untuk aset investasi umum seperti saham, forex, dan mata uang kripto, sehingga tidak perlu lagi memasukkan harga secara manual.
 
-Skrip shell untuk otomatisasi instalasi, konfigurasi, dan maintenance.
+**Lokasi Konfigurasi:**
 
+  - Kunci API tersimpan di dalam file `.env` di server pada variabel `ALPHA_VANTAGE_KEY`.
+
+-----
+
+## 2\. Web Scraping & Penjadwalan Otomatis (Cron Job)
+
+  - **Status**: **Sudah Diterapkan** 
+  - **Layanan**: Fitur bawaan & Konfigurasi Server.
+
+**Fungsi:**
+Sebagai alternatif dari Alpha Vantage, fitur ini digunakan untuk mengambil data harga dari situs web manapun. Ini sangat berguna untuk aset yang tidak terdaftar di API, seperti reksa dana lokal.
+
+Agar proses ini berjalan **secara otomatis** setiap hari tanpa intervensi manual, sebuah **Cron Job** (penjadwal tugas) telah diatur di tingkat server. Cron job ini berfungsi sebagai "alarm" yang memanggil YAFFA setiap menit untuk memeriksa apakah ada jadwal scraping yang perlu dijalankan.
+
+**Implementasi & Penggunaan:**
+
+**A. Konfigurasi di Dalam Aplikasi YAFFA:**
+Bagian ini diatur oleh pengguna untuk setiap aset yang memerlukannya.
+
+1.  Saat menambah atau mengedit aset investasi, pilih metode pengambilan harga **"Web scraping"**.
+2.  **URL**: Masukkan alamat halaman web yang menampilkan harga.
+3.  **CSS Selector**: Masukkan "koordinat" HTML dari harga tersebut, yang didapatkan dengan fitur "Inspect Element" di browser.
+
+**B. Konfigurasi Otomatisasi di Server:**
+Bagian ini telah selesai dikonfigurasi di server untuk memastikan penjadwal YAFFA selalu aktif.
+
+  - Untuk memverifikasi, jalankan perintah `crontab -l` di terminal SSH. Baris berikut akan muncul:
+    ```crontab
+    * * * * * cd /home/azureuser/yaffa && /usr/bin/php artisan schedule:run >> /dev/null 2>&1
+    ```
+  - **Peringatan**: Perlu diingat bahwa proses scraping sangat rapuh. Jika situs web sumber mengubah desainnya, proses scraping bisa gagal dan CSS Selector perlu dikonfigurasi ulang.
+
+-----
+
+## 3\. Konfigurasi Pengiriman Email (SMTP)
+
+  - **Status**: Belum Diterapkan 
+  - **Layanan**: Mayoritas berbayar (model *freemium*).
+
+**Fungsi:**
+Mengaktifkan kemampuan YAFFA untuk mengirim email, yang penting untuk verifikasi pendaftaran pengguna baru dan fitur reset password.
+
+**Alasan Belum Diterapkan:**
+Memerlukan langganan layanan SMTP pihak ketiga (seperti SendGrid, Mailgun). Meskipun ada paket gratis, biasanya terdapat batasan ketat pada jumlah email yang bisa dikirim.
+
+**Langkah Implementasi di Masa Depan:**
+Memerlukan pendaftaran di penyedia SMTP dan mengisi kredensial (`MAIL_HOST`, `MAIL_PORT`, dll) di dalam file `.env`.
+
+-----
+
+## 4\. Pemrosesan Struk Otomatis (OpenAI)
+
+  - **Status**: Belum Diterapkan 
+  - **Layanan**: Berbayar dan kompleks untuk diatur.
+
+**Fungsi:**
+Pengguna bisa meneruskan (forward) email berisi struk ke alamat email khusus. YAFFA kemudian menggunakan AI (OpenAI) untuk membaca struk tersebut dan secara otomatis membuat draf transaksi.
+
+**Alasan Belum Diterapkan:**
+Ini adalah fitur yang paling kompleks dan mahal untuk diimplementasikan, karena memerlukan **API OpenAI berbayar** dan **domain pribadi** untuk menerima email (tidak bisa menggunakan DuckDNS).
+
+**Langkah Implementasi di Masa Depan:**
+Memerlukan pembelian domain pribadi, pengaturan MX Record, dan konfigurasi kredensial SendGrid serta OpenAI di dalam file `.env`.
 
 
 # Cara Pemakaian
@@ -498,7 +559,7 @@ Dashboard menampilkan ringkasan keuangan keseluruhan dari seluruh akun dan aktiv
 | **Platform** | Web (self-hosted) | Web (self-hosted) | Desktop | Desktop |
 | **Kemudahan Instalasi** | Mudah & ringan | Kompleks untuk pemula | Mudah | Cukup kompleks |
 | **Antarmuka (UI/UX)** | Modern & responsif | Menengah, banyak fitur | Klasik | Kurang ramah pengguna |
-| **Akses Offline** | Tidak bisa penuh | Tidak | Ya | Ya |
+| **Akses Offline** | Tidak | Tidak | Ya | Ya |
 | **Multi-Currency** | Ya | Ya | Terbatas | Ya |
 | **Investasi & Aset** | Ada | Ada | Terbatas | Ada |
 | **Integrasi API Bank** | Tidak | Ya (melalui plugin) | Tidak | Tidak |
