@@ -502,8 +502,10 @@ Sistem menggunakan **OpenAI API** untuk membaca isi struk dan menghasilkan **dra
 ### Konfigurasi (Rencana)
 
 ```env
-OPENAI_API_KEY=your_api_key_here
-SENDGRID_API_KEY=your_sendgrid_key
+MAILBOX_DRIVER=sendgrid
+MAILBOX_HTTP_PASSWORD=yourpassword
+INCOMING_RECEIPTS_EMAIL=
+OPENAI_API_KEY=yourapikey
 ```
 
 # Cara Pemakaian
