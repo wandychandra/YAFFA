@@ -581,6 +581,24 @@ Cari dan analisis transaksi berdasarkan tanggal, kategori, akun, atau penerima. 
   <img src="./assets/Find Transactions 4.png" width="48%" alt="Find Transactions 4">
 </p>
 
+### C. Automasi sistem.
+
+1. Received Emails
+YAFFA dapat menerima email secara otomatis untuk mengestrak data bukti transaksi (receipts) yang dikirim ke sistem. 
+
+Catatan: fitur ini membutuhkan akun email provider dengan dukungan SMTP dan domain verifikasi serta OpenAI API key aktif + billing yang sifatnya berbayar. Oleh karena itu, fitur ini belum dapat diimplementasikan dalam versi kami.
+<p align="center">
+  <img src="./assets/received email.png" width="75%" alt="Email">
+</p>
+
+2. Import Transactions
+Memungkinkan pengguna untuk mengimpor data transaksi dari file eksternal (CSV). 
+
+Catatan: Fitur ini masih dalam proses pengembangan dari developer sehingga belum dapat diimplementasikan.
+<p align="center">
+  <img src="./assets/import transactions.png" width="75%" alt="Import">
+</p>
+
 
 
 # Pembahasan
