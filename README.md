@@ -352,9 +352,6 @@ https://yaffadomain.duckdns.org
 
 # Konfigurasi
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
-
-## Konfigurasi YAFFA
-
 ### Environment Variables (.env)
 
 File `.env` berisi konfigurasi utama YAFFA. Berikut adalah setting penting:
