@@ -512,6 +512,7 @@ OPENAI_API_KEY=yourapikey
   <img src="./assets/YAFFA_information architecture.png" width="90%" alt="Architecture">
 </p>
 YAFFA membantu pengguna mengelola keuangan harian sekaligus pertumbuhan jangka panjang. Fitur-fiturnya terbagi menjadi dua fokus utama:
+
 ### A. Pengelolaan tabungan dan pengeluaran harian
 
 1. Currencies (Mata Uang)
