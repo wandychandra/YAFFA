@@ -15,7 +15,14 @@
 
 </div>
 
-
+# Anggota Kelompok
+| NIM           | Nama                        |
+|---------------|-----------------------------|
+| G6401231018   | Deshi Ardiani               |
+| G6401231062   | Dinaranaya Putri Hutauruk   |
+| G6401231040   | Fauzan Arif Tricahya        |
+| G6401231054   | Wandy Chandra Wijaya        |
+| G6401231104   | Muhammad Abdullah           |
 
 # Sekilas Tentang
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
@@ -563,6 +570,32 @@ Dashboard menampilkan ringkasan keuangan keseluruhan dari seluruh akun dan aktiv
   <img src="./assets/Dashboard.png" width="75%" alt="Dashboard">
 </p>
 
+4. Find Transactions
+Cari dan analisis transaksi berdasarkan tanggal, kategori, akun, atau penerima. Menyediakan ringkasan transaksi, daftar detail, serta grafik dan diagram untuk memantau pengeluaran.
+<p align="center">
+  <img src="./assets/Find Transactions 1.png" width="48%" style="margin-right: 2%;" alt="Find Transactions 1">
+  <img src="./assets/Find Transactions 2.png" width="48%" alt="Find Transactions 2">
+</p>
+<p align="center">
+  <img src="./assets/Find Transactions 3.png" width="48%" style="margin-right: 2%;" alt="Find Transactions 1">
+  <img src="./assets/Find Transactions 4.png" width="48%" alt="Find Transactions 4">
+</p>
+
+### C. Automasi sistem.
+
+1. Received Emails
+YAFFA dapat menerima email secara otomatis untuk mengestrak data bukti transaksi (receipts) yang dikirim ke sistem.
+Catatan: fitur ini membutuhkan akun email provider dengan dukungan SMTP dan domain verifikasi serta OpenAI API key aktif + billing yang sifatnya berbayar. Oleh karena itu, fitur ini belum dapat diimplementasikan dalam versi kami.
+<p align="center">
+  <img src="./assets/received email.png" width="75%" alt="Email">
+</p>
+
+2. Import Transactions
+Memungkinkan pengguna untuk mengimpor data transaksi dari file eksternal (CSV).
+Catatan: Fitur ini masih dalam proses pengembangan dari developer sehingga belum dapat diimplementasikan.
+<p align="center">
+  <img src="./assets/import transactions.png" width="75%" alt="Import">
+</p>
 
 # Pembahasan
 [`^ kembali ke atas ^`](#project-hosting-kdjk-yaffa-kelompok-5paralel-1)
